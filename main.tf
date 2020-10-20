@@ -3,7 +3,7 @@ provider "aws" {
     profile = "default"
 }
 
-module "mdmbutterflu_buckets" {
+module "mdmbutterfly_buckets" {
   source = "./modules/terraform-aws-s3-bucket"
 
   for_each = var.project
