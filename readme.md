@@ -1,3 +1,5 @@
+branch for_each_example shows for_each feature implementation
+
 1. I use the s3 bucket module recommended from terraform official site. 
 2. I use maps variable for define lifecycle policy and names. In the future, there is a possibility to add another common configuration
 3. Because we know the number of buckets and we assume that the number of buckets will not change in the future dynamically and often I decide to write 3 module instantiation in tf file. In my opinion it more readable and easy to maintain rather than use count.
