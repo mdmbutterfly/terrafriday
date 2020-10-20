@@ -1,29 +1,12 @@
-variable "bucket_names" {
+variable project {
+
     type = map
 
     default = {
-        weekly = "mdmbutterfly-weather-weekly"
-        daily = "mdmbutterfly-weather-daily"
-        hourly = "mdmbutterfly-weather-hourly"
-    }
-}
 
-variable "bucket_tags" {
-    type = map
-
-    default = {
-        weekly = { bucket_types = "weekly"}
-        daily = { bucket_types = "daily"}
-        hourly = { bucket_types = "hourly"}
-    }
-}
-
-variable "bucket_lifecycle_rules" {
-    type = map
-
-    default = {
-############        
-        weekly = [
+mdmbutterfly-weather-weekly = {
+    tags = { bucket_types = "weekly"}
+    lifecycle_rule = [
     {
       id      = "weekly"
       enabled = true
@@ -48,8 +31,10 @@ variable "bucket_lifecycle_rules" {
 
     },
   ]
-############
-        daily = [
+}
+mdmbutterfly-weather-daily = {
+    tags = { bucket_types = "daily"}
+    lifecycle_rule = [
     {
       id      = "daily"
       enabled = true
@@ -75,10 +60,10 @@ variable "bucket_lifecycle_rules" {
      
     },
   ]
-
-############
-
-        hourly = [
+}
+mdmbutterfly-weather-hourly = {
+    tags = { bucket_types = "hourly"}
+    lifecycle_rule = [
     {
       id      = "hourly"
       enabled = true
@@ -103,5 +88,6 @@ variable "bucket_lifecycle_rules" {
 
     },]
 
+}
     }
 }

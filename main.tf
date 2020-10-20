@@ -3,35 +3,15 @@ provider "aws" {
     profile = "default"
 }
 
-module "s3_bucket_weekly" {
+module "mdmbutterflu_buckets" {
   source = "./modules/terraform-aws-s3-bucket"
 
-  bucket        = var.bucket_names.weekly
+  for_each = var.project
 
-  tags = var.bucket_tags.weekly
+  #bucket        = var.bucket_names.weekly
 
-  lifecycle_rule = var.bucket_lifecycle_rules.weekly
+  #tags = var.bucket_tags.weekly
 
-}
-
-module "s3_bucket_daily" {
-  source = "./modules/terraform-aws-s3-bucket"
-
-  bucket        = var.bucket_names.daily
-
-  tags = var.bucket_tags.daily
-
-  lifecycle_rule = var.bucket_lifecycle_rules.daily
-
-}
-
-module "s3_bucket_hourly" {
-  source = "./modules/terraform-aws-s3-bucket"
-
-  bucket        = var.bucket_names.hourly
-
-  tags = var.bucket_tags.hourly
-
-  lifecycle_rule = var.bucket_lifecycle_rules.hourly
+  #lifecycle_rule = var.bucket_lifecycle_rules.weekly
 
 }
